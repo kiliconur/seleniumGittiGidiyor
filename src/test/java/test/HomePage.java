@@ -42,7 +42,7 @@ public class HomePage extends BaseTest {
         basePage.hoverElement(getGirisYapButton());
         log.info("Giriş yap butonuna fare getirildi");
         basePage.click(getGirisYapMenuButton());
-        log.info("Giriş yap butonuna tıklandıç");
+        log.info("Giriş yap butonuna tıklandı");
         basePage.sendKeys(getUserNameField(),getUserName());
         basePage.sendKeys(getPasswordField(),getPassword());
         basePage.click(getConfirmGirisYapButton());
@@ -72,7 +72,7 @@ public class HomePage extends BaseTest {
         int newNumberOfElementLiked = updatedNumberOfElementLiked-numberOfElementLiked;
 
         Assertions.assertTrue(newNumberOfElementLiked==4,"4 adet ürün eklenmedi, onun yerine "+ newNumberOfElementLiked+" adet ürün eklendi.");
-        log.info("4 adet ürünü favoriye ekleme işlemi yapıldı");
+        log.info("4 adet ürünü favoriye ekleme işlemi başarılı.");
     }
     @Test
     @Order(4)
@@ -137,12 +137,14 @@ public class HomePage extends BaseTest {
         }
 
         Assertions.assertEquals(String.valueOf(currentItemCount),select.getFirstSelectedOption().getText(),"Ürün sayısı arttırılamadı.");
+        log.info("Sepetteki ürün sayısını arttırılma testi başarıyla gerçekleşti.");
     }
 
     @Test
     @Order(8)
     public void goToPayment() {
         basePage.click(getAlisverisiTamamlaButton());
+        log.info("Alışverişi tamamla butonuna tıklandı");
         boolean isNull=false;
         try {
             Assertions.assertNotNull(driver.findElement(getSummaryField()),"Ödeme sayfası açılamadı.");
@@ -151,11 +153,13 @@ public class HomePage extends BaseTest {
             isNull=true;
         }
         Assertions.assertFalse(isNull,"Ödeme sayfası açılamadı.");
+        log.info("Ödeme sayfasına geçildi.");
     }
     @Test
     @Order(9)
     public void saveAddress() throws InterruptedException {
         basePage.click(getAdresKaydetButton());
+        log.info("Adresi kaydet butonuna tıklandı");
         boolean isNull=false;
         try {
             Assertions.assertNotNull(driver.findElement(getErrorField()),"Kaydet tuşuna basılamadı veya hata mesajları gözükmedi.");
@@ -164,14 +168,16 @@ public class HomePage extends BaseTest {
             isNull=true;
         }
         Assertions.assertFalse(isNull,"Kaydet tuşuna basılamadı veya hata mesajları gözükmedi.");
-
+        log.info("Hata mesajları gözükdü.");
         TimeUnit.SECONDS.sleep(2);
     }
     @Test
     @Order(10)
     public void editCart() {
+        log.info("Sepeti düzenle butonuna tıklandı");
         basePage.click(getSepetDuzenleButton());
         Assertions.assertEquals("https://www.gittigidiyor.com/sepetim",driver.getCurrentUrl(),"Sepet sayfası açılmadı");
+        log.info("Sepetim sayfası açıldı");
     }
     @Test
     @Order(11)
@@ -189,6 +195,7 @@ public class HomePage extends BaseTest {
             sizeOfCart = driver.findElements(getControlCart()).size();
         }
         Assertions.assertTrue(sizeOfCart==(oldSizeOfCart+1),"Sepete favorilerden ürün eklenme işlemi yapılamadı.");
+        log.info("Sepete favorilerden ürün ekleme işlemi yapıldı");
         TimeUnit.SECONDS.sleep(2);
     }
     @Test
@@ -196,6 +203,7 @@ public class HomePage extends BaseTest {
     public void seeAllFav() {
         driver.navigate().to("https://www.gittigidiyor.com/hesabim/izlediklerim");
         Assertions.assertEquals("https://www.gittigidiyor.com/hesabim/izlediklerim",driver.getCurrentUrl(),"İzlediklerim sayfası açılmadı.");
+        log.info("İzlediklerim sayfası açıldı");
     }
     @Test
     @Order(13)
@@ -222,6 +230,7 @@ public class HomePage extends BaseTest {
             isNull=true;
         }
         Assertions.assertFalse(isNull,"Ürün silindi mesajı alınamadı. Ürün silinemedi.");
+        log.info("Favorilere 3. sırada eklenmiş olan ürün bulundu ve silindi");
     }
     @Test
     @Order(14)
@@ -232,6 +241,7 @@ public class HomePage extends BaseTest {
         TimeUnit.SECONDS.sleep(3);
 
         Assertions.assertTrue(driver.getWindowHandles().size()==2,"Yeni sekme açılamadı");
+        log.info("Yeni sekme açıldı");
         basePage.switchTo();
         TimeUnit.SECONDS.sleep(3);
 
@@ -241,6 +251,7 @@ public class HomePage extends BaseTest {
     public void logout() {
         basePage.hoverElement(getHesabımTitle());
         basePage.click(getCikisButton());
+        log.info("Fare imleci hesabıma getirildi ve ardından çıkış butonuna tıklandı.");
 
         boolean isNull=false;
         try {
@@ -250,6 +261,7 @@ public class HomePage extends BaseTest {
             isNull=true;
         }
         Assertions.assertFalse(isNull,"Çıkış yapılamadı, çünkü giriş yap butonu mevcut.");
+        log.info("Çıkış başarılı.");
 
     }
     @Test
@@ -258,6 +270,7 @@ public class HomePage extends BaseTest {
         int oldTabCount = driver.getWindowHandles().size();
         driver.close();
         Assertions.assertTrue(driver.getWindowHandles().size()==(oldTabCount-1),"Mevcut tab sayısı değişmedi.");
+        log.info("Sekme kapatıldı.");
 
     }
 }

@@ -46,6 +46,8 @@ logOut - Fare imleci hesabıma getirilir ve sonrasında çıkış yap butonuna t
 
 closeTab - Mevcut sekme kapatılır, sekme sayısı ile kapatılmadan öncesi sekme sayısı karşılaştırılır. 1 azaldığı durumda test başarılıdır.
 
+Not:Kalem araması yapıldığında otomatik olarak favoriye alınan ürünler sonradan manuel olarak favorilerden çıkarıldığında, bazen browserda ürünün sağ üzerinndeki kalp simgesi hala aktif gözükebiliyor ve
+bu durum arada hataya yol açabiliyor. Bu durumda favorilerden manuel olarak çıkartmak gerekiyor veya farklı bir ürün arama işlemiyle sorun çözülebilir.
 
 
 

@@ -1,4 +1,4 @@
-# seleniumhomework
+# seleniumGittiGidiyor
 
 -Test Senaryoları-
 
@@ -45,6 +45,9 @@ logOut - Fare imleci hesabıma getirilir ve sonrasında çıkış yap butonuna t
 çıkış işleminin başarılı yapıldığı anlaşılır.
 
 closeTab - Mevcut sekme kapatılır, sekme sayısı ile kapatılmadan öncesi sekme sayısı karşılaştırılır. 1 azaldığı durumda test başarılıdır.
+
+Not:Kalem araması yapıldığında otomatik olarak favoriye alınan ürünler sonradan manuel olarak favorilerden çıkarıldığında, bazen browserda ürünün sağ üzerinndeki kalp simgesi hala aktif gözükebiliyor ve
+bu durum arada hataya yol açabiliyor.
 
 
 
