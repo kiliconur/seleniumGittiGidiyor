@@ -1,4 +1,4 @@
-# seleniumhomework
+# seleniumGittiGidiyor
 
 -Test Senaryoları-
 
