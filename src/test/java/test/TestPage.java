@@ -16,11 +16,11 @@ import java.util.concurrent.TimeUnit;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Order(0)
-public class HomePage extends BaseTest {
+public class TestPage extends BaseTest {
     BasePage basePage = new BasePage();
     private static String elementToBeRemoved;
     private static String silinecekElementPath;
-    private static Logger log = Logger.getLogger(HomePage.class);
+    private static Logger log = Logger.getLogger(TestPage.class);
 
 
     @Test
